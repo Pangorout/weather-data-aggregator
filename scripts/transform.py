@@ -4,9 +4,7 @@ import pandas as pd
 from datetime import datetime
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-
 project_root = os.path.dirname(script_dir)
-
 raw_dir = os.path.join(project_root, 'data', 'raw')
 processed_dir = os.path.join(project_root, 'data', 'processed')
 
@@ -92,16 +90,16 @@ def run():
     # Convert the list of dicts to Pandas DF
     df = pd.DataFrame(all_weather_data)
 
-    # Output file path
-    output_csv_path = os.path.join(processed_dir, "processed_weather_data.csv")
 
-    # Save the DF to CSV
-    # index=False to avoid writing the DF's index as a column
-    df.to_csv(output_csv_path, index=False)
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    file_name =  f"processed_weather_data_{timestamp}.csv"
+    output_path = os.path.join(processed_dir, file_name)
 
+    df.to_csv(output_path, index=False)
+    
     print("-" * 50)
     print(f"Transformation completed. Processed {len(df)} records.")
-    print(f"Cleaned data saved to: {output_csv_path}")
+    print(f"Cleaned data saved to: {output_path}")
     print("Preview data:")
     print(df.head())
 

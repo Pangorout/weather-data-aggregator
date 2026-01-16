@@ -1,0 +1,46 @@
+{
+    "coord": {
+        "lon": 11.5755,
+        "lat": 48.1374
+    },
+    "weather": [
+        {
+            "id": 804,
+            "main": "Clouds",
+            "description": "overcast clouds",
+            "icon": "04n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 272.31,
+        "feels_like": 272.31,
+        "temp_min": 271.51,
+        "temp_max": 274.22,
+        "pressure": 1018,
+        "humidity": 88,
+        "sea_level": 1018,
+        "grnd_level": 953
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 0.45,
+        "deg": 186,
+        "gust": 0.89
+    },
+    "clouds": {
+        "all": 99
+    },
+    "dt": 1768541601,
+    "sys": {
+        "type": 2,
+        "id": 2002112,
+        "country": "DE",
+        "sunrise": 1768546711,
+        "sunset": 1768578469
+    },
+    "timezone": 3600,
+    "id": 2867714,
+    "name": "Munich",
+    "cod": 200
+}

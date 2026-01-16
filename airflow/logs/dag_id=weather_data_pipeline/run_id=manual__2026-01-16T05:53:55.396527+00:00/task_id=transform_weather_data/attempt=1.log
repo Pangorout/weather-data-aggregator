@@ -1,0 +1,139 @@
+[2026-01-16T05:54:06.476+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_pipeline.transform_weather_data manual__2026-01-16T05:53:55.396527+00:00 [queued]>
+[2026-01-16T05:54:06.499+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_pipeline.transform_weather_data manual__2026-01-16T05:53:55.396527+00:00 [queued]>
+[2026-01-16T05:54:06.500+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2026-01-16T05:54:06.529+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): transform_weather_data> on 2026-01-16 05:53:55.396527+00:00
+[2026-01-16T05:54:06.540+0000] {standard_task_runner.py:57} INFO - Started process 210 to run task
+[2026-01-16T05:54:06.546+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'weather_data_pipeline', 'transform_weather_data', 'manual__2026-01-16T05:53:55.396527+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/weather_scheduler.py', '--cfg-path', '/tmp/tmpvglek1cr']
+[2026-01-16T05:54:06.554+0000] {standard_task_runner.py:85} INFO - Job 4: Subtask transform_weather_data
+[2026-01-16T05:54:06.651+0000] {task_command.py:415} INFO - Running <TaskInstance: weather_data_pipeline.transform_weather_data manual__2026-01-16T05:53:55.396527+00:00 [running]> on host 7eba5050a014
+[2026-01-16T05:54:06.818+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='pangorin' AIRFLOW_CTX_DAG_ID='weather_data_pipeline' AIRFLOW_CTX_TASK_ID='transform_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2026-01-16T05:53:55.396527+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-01-16T05:53:55.396527+00:00'
+[2026-01-16T05:54:06.822+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-01-16T05:54:06.826+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'python /opt/***/scripts/transform.py']
+[2026-01-16T05:54:06.840+0000] {subprocess.py:86} INFO - Output:
+[2026-01-16T05:54:09.268+0000] {subprocess.py:93} INFO - Starting transformation process...
+[2026-01-16T05:54:09.270+0000] {subprocess.py:93} INFO - Successfully processed Nurburg_20260116_055401.json
+[2026-01-16T05:54:09.273+0000] {subprocess.py:93} INFO - Successfully processed Sydney_20260115_045507.json
+[2026-01-16T05:54:09.274+0000] {subprocess.py:93} INFO - Successfully processed Paris_20260116_054430.json
+[2026-01-16T05:54:09.275+0000] {subprocess.py:93} INFO - Successfully processed Munich_20260116_052633.json
+[2026-01-16T05:54:09.276+0000] {subprocess.py:93} INFO - Successfully processed Paris_20260116_053114.json
+[2026-01-16T05:54:09.279+0000] {subprocess.py:93} INFO - Successfully processed Paris_20260116_052634.json
+[2026-01-16T05:54:09.282+0000] {subprocess.py:93} INFO - Successfully processed Munich_20260115_043309.json
+[2026-01-16T05:54:09.286+0000] {subprocess.py:93} INFO - Successfully processed London_20260115_181754.json
+[2026-01-16T05:54:09.288+0000] {subprocess.py:93} INFO - Successfully processed Nurburg_20260115_181754.json
+[2026-01-16T05:54:09.290+0000] {subprocess.py:93} INFO - Successfully processed London_20260115_093150.json
+[2026-01-16T05:54:09.291+0000] {subprocess.py:93} INFO - Successfully processed Ho Chi Minh City_20260116_054429.json
+[2026-01-16T05:54:09.294+0000] {subprocess.py:93} INFO - Successfully processed Ho Chi Minh City_20260116_055401.json
+[2026-01-16T05:54:09.297+0000] {subprocess.py:93} INFO - Successfully processed Paris_20260115_044904.json
+[2026-01-16T05:54:09.304+0000] {subprocess.py:93} INFO - Successfully processed Los Angeles_20260116_053116.json
+[2026-01-16T05:54:09.308+0000] {subprocess.py:93} INFO - Successfully processed Sydney_20260115_043221.json
+[2026-01-16T05:54:09.309+0000] {subprocess.py:93} INFO - Successfully processed New York_20260115_045506.json
+[2026-01-16T05:54:09.312+0000] {subprocess.py:93} INFO - Successfully processed Los Angeles_20260115_045506.json
+[2026-01-16T05:54:09.316+0000] {subprocess.py:93} INFO - Successfully processed New York_20260116_053115.json
+[2026-01-16T05:54:09.320+0000] {subprocess.py:93} INFO - Successfully processed Tokyo_20260115_044909.json
+[2026-01-16T05:54:09.325+0000] {subprocess.py:93} INFO - Successfully processed Sydney_20260115_044910.json
+[2026-01-16T05:54:09.326+0000] {subprocess.py:93} INFO - Successfully processed Los Angeles_20260115_044907.json
+[2026-01-16T05:54:09.328+0000] {subprocess.py:93} INFO - Successfully processed Los Angeles_20260115_043219.json
+[2026-01-16T05:54:09.330+0000] {subprocess.py:93} INFO - Successfully processed Ho Chi Minh City_20260115_045504.json
+[2026-01-16T05:54:09.333+0000] {subprocess.py:93} INFO - Successfully processed Nurburg_20260116_053857.json
+[2026-01-16T05:54:09.335+0000] {subprocess.py:93} INFO - Successfully processed Los Angeles_20260115_181755.json
+[2026-01-16T05:54:09.338+0000] {subprocess.py:93} INFO - Successfully processed London_20260115_043310.json
+[2026-01-16T05:54:09.345+0000] {subprocess.py:93} INFO - Successfully processed Nurburg_20260115_043217.json
+[2026-01-16T05:54:09.347+0000] {subprocess.py:93} INFO - Successfully processed Nurburg_20260116_052634.json
+[2026-01-16T05:54:09.350+0000] {subprocess.py:93} INFO - Successfully processed Tokyo_20260115_043311.json
+[2026-01-16T05:54:09.353+0000] {subprocess.py:93} INFO - Successfully processed Ho Chi Minh City_20260115_043308.json
+[2026-01-16T05:54:09.355+0000] {subprocess.py:93} INFO - Successfully processed Munich_20260115_044902.json
+[2026-01-16T05:54:09.357+0000] {subprocess.py:93} INFO - Successfully processed Nurburg_20260116_054430.json
+[2026-01-16T05:54:09.360+0000] {subprocess.py:93} INFO - Successfully processed Paris_20260115_045505.json
+[2026-01-16T05:54:09.363+0000] {subprocess.py:93} INFO - Successfully processed Tokyo_20260116_053859.json
+[2026-01-16T05:54:09.365+0000] {subprocess.py:93} INFO - Successfully processed Paris_20260116_055402.json
+[2026-01-16T05:54:09.369+0000] {subprocess.py:93} INFO - Successfully processed Hanoi_20260115_045503.json
+[2026-01-16T05:54:09.370+0000] {subprocess.py:93} INFO - Successfully processed Tokyo_20260116_053116.json
+[2026-01-16T05:54:09.372+0000] {subprocess.py:93} INFO - Successfully processed Los Angeles_20260116_055402.json
+[2026-01-16T05:54:09.374+0000] {subprocess.py:93} INFO - Successfully processed Ho Chi Minh City_20260116_053853.json
+[2026-01-16T05:54:09.376+0000] {subprocess.py:93} INFO - Successfully processed Munich_20260116_055401.json
+[2026-01-16T05:54:09.377+0000] {subprocess.py:93} INFO - Successfully processed Los Angeles_20260116_052634.json
+[2026-01-16T05:54:09.380+0000] {subprocess.py:93} INFO - Successfully processed Los Angeles_20260116_053859.json
+[2026-01-16T05:54:09.381+0000] {subprocess.py:93} INFO - Successfully processed Nurburg_20260115_045504.json
+[2026-01-16T05:54:09.384+0000] {subprocess.py:93} INFO - Successfully processed Munich_20260115_181754.json
+[2026-01-16T05:54:09.387+0000] {subprocess.py:93} INFO - Successfully processed London_20260116_053858.json
+[2026-01-16T05:54:09.388+0000] {subprocess.py:93} INFO - Successfully processed Tokyo_20260115_043221.json
+[2026-01-16T05:54:09.389+0000] {subprocess.py:93} INFO - Successfully processed Ho Chi Minh City_20260115_043216.json
+[2026-01-16T05:54:09.391+0000] {subprocess.py:93} INFO - Successfully processed London_20260116_055402.json
+[2026-01-16T05:54:09.395+0000] {subprocess.py:93} INFO - Successfully processed Hanoi_20260116_055401.json
+[2026-01-16T05:54:09.397+0000] {subprocess.py:93} INFO - Successfully processed Sydney_20260116_052635.json
+[2026-01-16T05:54:09.399+0000] {subprocess.py:93} INFO - Successfully processed Sydney_20260115_093151.json
+[2026-01-16T05:54:09.401+0000] {subprocess.py:93} INFO - Successfully processed Munich_20260116_053111.json
+[2026-01-16T05:54:09.402+0000] {subprocess.py:93} INFO - Successfully processed New York_20260115_043310.json
+[2026-01-16T05:54:09.405+0000] {subprocess.py:93} INFO - Successfully processed Ho Chi Minh City_20260116_052633.json
+[2026-01-16T05:54:09.408+0000] {subprocess.py:93} INFO - Successfully processed New York_20260115_043219.json
+[2026-01-16T05:54:09.410+0000] {subprocess.py:93} INFO - Successfully processed Nurburg_20260115_093149.json
+[2026-01-16T05:54:09.411+0000] {subprocess.py:93} INFO - Successfully processed New York_20260115_044906.json
+[2026-01-16T05:54:09.413+0000] {subprocess.py:93} INFO - Successfully processed Munich_20260116_053853.json
+[2026-01-16T05:54:09.416+0000] {subprocess.py:93} INFO - Successfully processed New York_20260116_055402.json
+[2026-01-16T05:54:09.420+0000] {subprocess.py:93} INFO - Successfully processed Hanoi_20260116_053106.json
+[2026-01-16T05:54:09.425+0000] {subprocess.py:93} INFO - Successfully processed Sydney_20260115_181755.json
+[2026-01-16T05:54:09.429+0000] {subprocess.py:93} INFO - Successfully processed Hanoi_20260115_181754.json
+[2026-01-16T05:54:09.431+0000] {subprocess.py:93} INFO - Successfully processed Hanoi_20260116_054424.json
+[2026-01-16T05:54:09.433+0000] {subprocess.py:93} INFO - Successfully processed Ho Chi Minh City_20260115_181754.json
+[2026-01-16T05:54:09.437+0000] {subprocess.py:93} INFO - Successfully processed Sydney_20260116_055402.json
+[2026-01-16T05:54:09.440+0000] {subprocess.py:93} INFO - Successfully processed Tokyo_20260115_181755.json
+[2026-01-16T05:54:09.441+0000] {subprocess.py:93} INFO - Successfully processed Ho Chi Minh City_20260115_044901.json
+[2026-01-16T05:54:09.442+0000] {subprocess.py:93} INFO - Successfully processed New York_20260115_093150.json
+[2026-01-16T05:54:09.443+0000] {subprocess.py:93} INFO - Successfully processed Sydney_20260116_053116.json
+[2026-01-16T05:54:09.446+0000] {subprocess.py:93} INFO - Successfully processed Paris_20260115_093149.json
+[2026-01-16T05:54:09.448+0000] {subprocess.py:93} INFO - Successfully processed Sydney_20260116_054431.json
+[2026-01-16T05:54:09.450+0000] {subprocess.py:93} INFO - Successfully processed Munich_20260116_054430.json
+[2026-01-16T05:54:09.452+0000] {subprocess.py:93} INFO - Successfully processed New York_20260116_053858.json
+[2026-01-16T05:54:09.454+0000] {subprocess.py:93} INFO - Successfully processed Tokyo_20260115_045506.json
+[2026-01-16T05:54:09.458+0000] {subprocess.py:93} INFO - Successfully processed Sydney_20260115_043311.json
+[2026-01-16T05:54:09.461+0000] {subprocess.py:93} INFO - Successfully processed Nurburg_20260116_053111.json
+[2026-01-16T05:54:09.461+0000] {subprocess.py:93} INFO - Successfully processed Ho Chi Minh City_20260115_093149.json
+[2026-01-16T05:54:09.462+0000] {subprocess.py:93} INFO - Successfully processed London_20260116_053115.json
+[2026-01-16T05:54:09.462+0000] {subprocess.py:93} INFO - Successfully processed Tokyo_20260116_055402.json
+[2026-01-16T05:54:09.464+0000] {subprocess.py:93} INFO - Successfully processed Hanoi_20260116_053849.json
+[2026-01-16T05:54:09.466+0000] {subprocess.py:93} INFO - Successfully processed Los Angeles_20260115_043311.json
+[2026-01-16T05:54:09.468+0000] {subprocess.py:93} INFO - Successfully processed Ho Chi Minh City_20260116_053110.json
+[2026-01-16T05:54:09.469+0000] {subprocess.py:93} INFO - Successfully processed New York_20260116_052634.json
+[2026-01-16T05:54:09.470+0000] {subprocess.py:93} INFO - Successfully processed New York_20260116_054430.json
+[2026-01-16T05:54:09.472+0000] {subprocess.py:93} INFO - Successfully processed New York_20260115_181755.json
+[2026-01-16T05:54:09.474+0000] {subprocess.py:93} INFO - Successfully processed London_20260116_054430.json
+[2026-01-16T05:54:09.475+0000] {subprocess.py:93} INFO - Successfully processed Paris_20260116_053857.json
+[2026-01-16T05:54:09.477+0000] {subprocess.py:93} INFO - Successfully processed Hanoi_20260116_052633.json
+[2026-01-16T05:54:09.478+0000] {subprocess.py:93} INFO - Successfully processed Munich_20260115_043217.json
+[2026-01-16T05:54:09.480+0000] {subprocess.py:93} INFO - Successfully processed Hanoi_20260115_043216.json
+[2026-01-16T05:54:09.486+0000] {subprocess.py:93} INFO - Successfully processed Paris_20260115_043309.json
+[2026-01-16T05:54:09.488+0000] {subprocess.py:93} INFO - Successfully processed London_20260115_044905.json
+[2026-01-16T05:54:09.490+0000] {subprocess.py:93} INFO - Successfully processed London_20260115_043218.json
+[2026-01-16T05:54:09.493+0000] {subprocess.py:93} INFO - Successfully processed Munich_20260115_045504.json
+[2026-01-16T05:54:09.495+0000] {subprocess.py:93} INFO - Successfully processed Tokyo_20260115_093151.json
+[2026-01-16T05:54:09.497+0000] {subprocess.py:93} INFO - Successfully processed London_20260115_045505.json
+[2026-01-16T05:54:09.503+0000] {subprocess.py:93} INFO - Successfully processed Tokyo_20260116_054431.json
+[2026-01-16T05:54:09.511+0000] {subprocess.py:93} INFO - Successfully processed Tokyo_20260116_052635.json
+[2026-01-16T05:54:09.516+0000] {subprocess.py:93} INFO - Successfully processed Hanoi_20260115_093148.json
+[2026-01-16T05:54:09.518+0000] {subprocess.py:93} INFO - Successfully processed Nurburg_20260115_044904.json
+[2026-01-16T05:54:09.520+0000] {subprocess.py:93} INFO - Successfully processed Hanoi_20260115_044900.json
+[2026-01-16T05:54:09.522+0000] {subprocess.py:93} INFO - Successfully processed Sydney_20260116_053859.json
+[2026-01-16T05:54:09.524+0000] {subprocess.py:93} INFO - Successfully processed Nurburg_20260115_043309.json
+[2026-01-16T05:54:09.527+0000] {subprocess.py:93} INFO - Successfully processed Munich_20260115_093149.json
+[2026-01-16T05:54:09.532+0000] {subprocess.py:93} INFO - Successfully processed Los Angeles_20260115_093151.json
+[2026-01-16T05:54:09.534+0000] {subprocess.py:93} INFO - Successfully processed London_20260116_052634.json
+[2026-01-16T05:54:09.551+0000] {subprocess.py:93} INFO - Successfully processed Los Angeles_20260116_054430.json
+[2026-01-16T05:54:09.557+0000] {subprocess.py:93} INFO - Successfully processed Hanoi_20260115_043308.json
+[2026-01-16T05:54:09.559+0000] {subprocess.py:93} INFO - Successfully processed Paris_20260115_181754.json
+[2026-01-16T05:54:09.561+0000] {subprocess.py:93} INFO - Successfully processed Paris_20260115_043218.json
+[2026-01-16T05:54:09.563+0000] {subprocess.py:93} INFO - --------------------------------------------------
+[2026-01-16T05:54:09.565+0000] {subprocess.py:93} INFO - Transformation completed. Processed 110 records.
+[2026-01-16T05:54:09.567+0000] {subprocess.py:93} INFO - Cleaned data saved to: /opt/***/data/processed/processed_weather_data_20260116_055409.csv
+[2026-01-16T05:54:09.569+0000] {subprocess.py:93} INFO - Preview data:
+[2026-01-16T05:54:09.570+0000] {subprocess.py:93} INFO -       city        timestamp_utc  ...  wind_speed_ms  weather_description
+[2026-01-16T05:54:09.571+0000] {subprocess.py:93} INFO - 0  Nürburg  2026-01-16 05:44:30  ...           6.69        broken clouds
+[2026-01-16T05:54:09.573+0000] {subprocess.py:93} INFO - 1   Sydney  2026-01-15 04:47:30  ...          10.80     scattered clouds
+[2026-01-16T05:54:09.575+0000] {subprocess.py:93} INFO - 2    Paris  2026-01-16 05:44:20  ...           3.60      overcast clouds
+[2026-01-16T05:54:09.576+0000] {subprocess.py:93} INFO - 3   Munich  2026-01-16 05:25:09  ...           0.45      overcast clouds
+[2026-01-16T05:54:09.580+0000] {subprocess.py:93} INFO - 4    Paris  2026-01-16 05:19:33  ...           3.60      overcast clouds
+[2026-01-16T05:54:09.581+0000] {subprocess.py:93} INFO - 
+[2026-01-16T05:54:09.584+0000] {subprocess.py:93} INFO - [5 rows x 7 columns]
+[2026-01-16T05:54:09.587+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-01-16T05:54:09.705+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=weather_data_pipeline, task_id=transform_weather_data, execution_date=20260116T055355, start_date=20260116T055406, end_date=20260116T055409
+[2026-01-16T05:54:09.759+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2026-01-16T05:54:09.831+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

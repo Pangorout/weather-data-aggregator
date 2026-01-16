@@ -1,0 +1,46 @@
+{
+    "coord": {
+        "lon": 151.2073,
+        "lat": -33.8679
+    },
+    "weather": [
+        {
+            "id": 801,
+            "main": "Clouds",
+            "description": "few clouds",
+            "icon": "02d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 298.32,
+        "feels_like": 298.64,
+        "temp_min": 296.7,
+        "temp_max": 299.99,
+        "pressure": 1003,
+        "humidity": 67,
+        "sea_level": 1003,
+        "grnd_level": 998
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 3.13,
+        "deg": 139,
+        "gust": 7.6
+    },
+    "clouds": {
+        "all": 12
+    },
+    "dt": 1768543900,
+    "sys": {
+        "type": 2,
+        "id": 2010638,
+        "country": "AU",
+        "sunrise": 1768503615,
+        "sunset": 1768554526
+    },
+    "timezone": 39600,
+    "id": 2147714,
+    "name": "Sydney",
+    "cod": 200
+}

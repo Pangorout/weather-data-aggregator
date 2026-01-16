@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import glob
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 
@@ -14,36 +15,41 @@ def run():
     db_name = os.getenv("DB_NAME")
     db_port = os.getenv("DB_PORT")
 
-    # Input validation for environment variables
+    # Input validation
     if not all([db_host, db_user, db_password, db_name, db_port]):
         print(f"Error: Database credentials not found in .env file.")
-        print(f"Please ensure your .env file is correctly set up.")
-        return
+        raise Exception("Missing Database Credentials")
     
-    # Check processed data file
-    processed_file_path = "data/processed/processed_weather_data.csv"
-    if not os.path.exists(processed_file_path):
-        print(f"Error: Processed file not found at '{processed_file_path}'.")
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    processed_dir = os.path.join(project_root, 'data', 'processed')
+    search_pattern = os.path.join(processed_dir, "processed_weather_*.csv") 
+    
+    # Get a list of all matching files
+    print(f"Searching for files at: {search_pattern}")
+    list_of_files = glob.glob(search_pattern)
+    
+    if not list_of_files:
+        print(f"Error: No processed files found matching '{search_pattern}'.")
         print(f"Please run (or rerun) transform script.")
-        return
+        # Raise error so Airflow marks task as failed
+        raise FileNotFoundError("No processed CSV files found.")
+
+    # Find the latest file based on creation time
+    processed_file_path = max(list_of_files, key=os.path.getctime)
+    print(f"Found latest data file: {processed_file_path}")
     
     # Create database connection
     try:
-        # Connection string format for SQLAlchemy with mysql-connector
-        # dialect+driver://username:password@host:port/database
         connection_string = f"mysql+mysqlconnector://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
-
-        # Create engine database
         engine = create_engine(connection_string)
 
-        # Test connection (prevent error I'm so fking tired)
-        connection = engine.connect()
-        print(f"Successfully connected to MySQL database.")
-        connection.close()
+        with engine.connect() as connection:
+            print(f"Successfully connected to MySQL database.")
 
     except Exception as e:
         print(f"Error connecting to database: {e}")
-        return
+        raise e # Fail the task if DB connection fails
     
     # Load data into database
     try:
@@ -53,12 +59,8 @@ def run():
             print("Processed data file is empty. No data to load.")
             return
         
-        # Define target table name
         table_name = "weather_readings"
 
-        # pandas.to_sql to load the DF into the database
-        # 'append': Add new data. If the table has history, it will be preserved.
-        # index=False: Prevents pandas from writing the DF index as a column.
         df.to_sql(table_name, con=engine, if_exists='append', index=False)
 
         print("-" * 50)
@@ -66,8 +68,10 @@ def run():
 
     except FileNotFoundError:
         print(f"Error: The file {processed_file_path} was not found.")
+        raise
     except Exception as e:
         print(f"An error occurred during the data loading process: {e}")
+        raise e
 
 if __name__ == "__main__":
     run()
