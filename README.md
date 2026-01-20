@@ -1,26 +1,44 @@
 # Weather Data Aggregator
-Simple ETL pipeline to collect weather data for a few cities and store it for historical analysis.
+An end-to-end data engineering project that extracts real-time weather data, transforms it for analytical use, and loads it into a data warehouse. The pipeline is orchestrated by Apache Airflow running in Docker and visualized using Grafana.
 
+## Architecture
+This project uses a modern containerized arhcitecture:
+- Orchestrator: Apache Airflow (Dockerized) schedules and monitors the ETL workflow.
+- ETL Logic: Python scripts (`extract`, `transform`, `load`) managed as Airflow tasks.
+- Storage:
+    - Staging: Local CSV files with timestamped versioning.
+    - Warehouse: MySQL database (Containerized).
+- Visualization: Grafana (Dockerized) for real-time temperature and dashboard.
+
+## Tech Stack
+- Containerization: Docker & Docker Compose
+- Orchestration: Apacher Airflow
+- Language: Python
+- Database: MySQL (data warehouse), PostgresSQL (Airflow metadata)
+- Dashboarding: Grafana
+
+## Getting Started
+1. Prerequisites
+- Docker installed.
+- MySQL instance running in Docker.
+- API key from OpenWeatherMap.
+
+2. Environment Setup
+Create a `.env` file in the project root to store your secret keys. **Do not commit this file to GitHub!**
+
+3. Installation & Run
+- Start the entire pipeline with one command: `docker compose up -d --build`
+
+4. Accessing the Services
+- Airflow UI: http://localhost:8080
+- Grafana Dashboards: http://localhost:3000
+
+# The ETL workflow
 ## Phase 0: 
 1. Get API access:
 - Go to OpenWeatherAPI, generate an API key.
 
-2. Project structure
-- Create a main project folder.
-```plaintext
-weather_pipeline/
-├── core/
-│   ├── extract.py
-│   ├── load.py
-│   └── transform.py
-├── docs/
-│   └── readme.md
-├── .env
-├── .gitignore
-└── requirements.txt
-```
-
-3. Environment & dependencies
+2. Environment & dependencies
 - Create and active a Python virtual environment in project folder.
 - Create a `requirements.txt` file and add the necessary libraries:
     - `python-dotenv`
@@ -30,14 +48,14 @@ weather_pipeline/
     - `mysql-connector-python`
 - Install them using `pip install -r requirements.txt`.
 
-4. Configuration (`.env` file):
+3. Configuration (`.env` file):
 - In the `.env` file, store your secrets and configurations. **Never commit this file to Git**.
 
-5. Install and run a MySQL server, few options like:
+4. Install and run a MySQL server, few options like:
 - **Local install**: Download and install MySQL Community Server directly onto machine.
 - **Docker**: This is preference, and often the easiest way. Can pull the official MySQL image and run it in a container.
 
-6. Create a database and user:
+5. Create a database and user:
 - Connect to MySQL server using a command-line client or a GUI tool like DBeaver or MySQL Workbench. Run the following SQL commands to create a dedicated database and a user for the application.
 
 ## Phase 1: E - Extract (`extract.py`)
@@ -82,7 +100,7 @@ weather_pipeline/
     - **Save the clean data**: Save this single DataFrame to a CSV file in data directory.
 
 ## Phase 3: L - Load (`load.py`)
-- Take the clean, processed data and load it into its final destination - a database. Use SQLite or any database, personal preference.
+- Take the clean, processed data and load it into its final destination - a database. Use MySQL or any database, personal preference.
     - **Connect to database and create the table**: Use MySQL database. Connect to the `weather_db` and run the `CREATE TABLE` statement once.
     - **Load configuration**: Read the database credentials (`DB_HOST`, `DB_USER`, etc.) from the `.env` file.
     - **Create a database connection engine**: Use SQLAlchemy's `create_engine` function. Construct a special "connection string" (also called a DSN) that tells SQLAlchemy how to find and log into the database. This engine object manages the connection pool to the database efficiently.
@@ -94,8 +112,3 @@ weather_pipeline/
             - `if_exists`: `'append'` (most important part).
             - `index`: `False` (prevent saving the `pandas` DataFrame index as a column in the SQL table).
         - **Crucially**, use the `if_exists='append'` argument. This tells `pandas` to add the new rows to the table if it already exists, rather than failing or overwriting it. This is what allows to build a historical dataset over time.
-
-## Putting it all together (`main.py`)
-- This script is the conductor of your orchestra.
-    - **Import**: Import the main functions from your `extract`, `transform`, and `load` scripts.
-    - **Execute in order**: Call the functions one by one.
