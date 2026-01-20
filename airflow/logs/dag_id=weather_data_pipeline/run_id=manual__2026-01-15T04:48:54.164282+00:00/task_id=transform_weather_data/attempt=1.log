@@ -1,0 +1,79 @@
+[2026-01-15T04:49:12.236+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_pipeline.transform_weather_data manual__2026-01-15T04:48:54.164282+00:00 [queued]>
+[2026-01-15T04:49:12.253+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_pipeline.transform_weather_data manual__2026-01-15T04:48:54.164282+00:00 [queued]>
+[2026-01-15T04:49:12.255+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2026-01-15T04:49:12.278+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): transform_weather_data> on 2026-01-15 04:48:54.164282+00:00
+[2026-01-15T04:49:12.286+0000] {standard_task_runner.py:57} INFO - Started process 400 to run task
+[2026-01-15T04:49:12.292+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'weather_data_pipeline', 'transform_weather_data', 'manual__2026-01-15T04:48:54.164282+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/weather_scheduler.py', '--cfg-path', '/tmp/tmp0nn42d26']
+[2026-01-15T04:49:12.297+0000] {standard_task_runner.py:85} INFO - Job 9: Subtask transform_weather_data
+[2026-01-15T04:49:12.402+0000] {task_command.py:415} INFO - Running <TaskInstance: weather_data_pipeline.transform_weather_data manual__2026-01-15T04:48:54.164282+00:00 [running]> on host bd68da24c275
+[2026-01-15T04:49:12.808+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='pangorin' AIRFLOW_CTX_DAG_ID='weather_data_pipeline' AIRFLOW_CTX_TASK_ID='transform_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2026-01-15T04:48:54.164282+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-01-15T04:48:54.164282+00:00'
+[2026-01-15T04:49:12.819+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-01-15T04:49:12.832+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'python /opt/***/scripts/transform.py']
+[2026-01-15T04:49:12.860+0000] {subprocess.py:86} INFO - Output:
+[2026-01-15T04:49:14.321+0000] {subprocess.py:93} INFO - Starting transformation process...
+[2026-01-15T04:49:14.322+0000] {subprocess.py:93} INFO - Successfully processed Munich_20260115_043309.json
+[2026-01-15T04:49:14.324+0000] {subprocess.py:93} INFO - Successfully processed London_20260115_093150.json
+[2026-01-15T04:49:14.326+0000] {subprocess.py:93} INFO - Successfully processed Paris_20260115_044904.json
+[2026-01-15T04:49:14.328+0000] {subprocess.py:93} INFO - Successfully processed Sydney_20260115_043221.json
+[2026-01-15T04:49:14.329+0000] {subprocess.py:93} INFO - Successfully processed Tokyo_20260115_044909.json
+[2026-01-15T04:49:14.331+0000] {subprocess.py:93} INFO - Successfully processed Sydney_20260115_044910.json
+[2026-01-15T04:49:14.333+0000] {subprocess.py:93} INFO - Successfully processed Los Angeles_20260115_044907.json
+[2026-01-15T04:49:14.335+0000] {subprocess.py:93} INFO - Successfully processed Los Angeles_20260115_043219.json
+[2026-01-15T04:49:14.336+0000] {subprocess.py:93} INFO - Successfully processed London_20260115_043310.json
+[2026-01-15T04:49:14.337+0000] {subprocess.py:93} INFO - Successfully processed Nurburg_20260115_043217.json
+[2026-01-15T04:49:14.339+0000] {subprocess.py:93} INFO - Successfully processed Tokyo_20260115_043311.json
+[2026-01-15T04:49:14.340+0000] {subprocess.py:93} INFO - Successfully processed Ho Chi Minh City_20260115_043308.json
+[2026-01-15T04:49:14.344+0000] {subprocess.py:93} INFO - Successfully processed Munich_20260115_044902.json
+[2026-01-15T04:49:14.347+0000] {subprocess.py:93} INFO - Successfully processed Tokyo_20260115_043221.json
+[2026-01-15T04:49:14.348+0000] {subprocess.py:93} INFO - Successfully processed Ho Chi Minh City_20260115_043216.json
+[2026-01-15T04:49:14.350+0000] {subprocess.py:93} INFO - Successfully processed Sydney_20260115_093151.json
+[2026-01-15T04:49:14.353+0000] {subprocess.py:93} INFO - Successfully processed New York_20260115_043310.json
+[2026-01-15T04:49:14.355+0000] {subprocess.py:93} INFO - Successfully processed New York_20260115_043219.json
+[2026-01-15T04:49:14.357+0000] {subprocess.py:93} INFO - Successfully processed Nurburg_20260115_093149.json
+[2026-01-15T04:49:14.358+0000] {subprocess.py:93} INFO - Successfully processed New York_20260115_044906.json
+[2026-01-15T04:49:14.360+0000] {subprocess.py:93} INFO - Successfully processed Ho Chi Minh City_20260115_044901.json
+[2026-01-15T04:49:14.363+0000] {subprocess.py:93} INFO - Successfully processed New York_20260115_093150.json
+[2026-01-15T04:49:14.365+0000] {subprocess.py:93} INFO - Successfully processed Paris_20260115_093149.json
+[2026-01-15T04:49:14.368+0000] {subprocess.py:93} INFO - Successfully processed Sydney_20260115_043311.json
+[2026-01-15T04:49:14.371+0000] {subprocess.py:93} INFO - Successfully processed Ho Chi Minh City_20260115_093149.json
+[2026-01-15T04:49:14.372+0000] {subprocess.py:93} INFO - Successfully processed Los Angeles_20260115_043311.json
+[2026-01-15T04:49:14.375+0000] {subprocess.py:93} INFO - Successfully processed Munich_20260115_043217.json
+[2026-01-15T04:49:14.376+0000] {subprocess.py:93} INFO - Successfully processed Hanoi_20260115_043216.json
+[2026-01-15T04:49:14.377+0000] {subprocess.py:93} INFO - Successfully processed Paris_20260115_043309.json
+[2026-01-15T04:49:14.381+0000] {subprocess.py:93} INFO - Successfully processed London_20260115_044905.json
+[2026-01-15T04:49:14.383+0000] {subprocess.py:93} INFO - Successfully processed London_20260115_043218.json
+[2026-01-15T04:49:14.386+0000] {subprocess.py:93} INFO - Successfully processed Tokyo_20260115_093151.json
+[2026-01-15T04:49:14.389+0000] {subprocess.py:93} INFO - Successfully processed Hanoi_20260115_093148.json
+[2026-01-15T04:49:14.392+0000] {subprocess.py:93} INFO - Successfully processed Nurburg_20260115_044904.json
+[2026-01-15T04:49:14.397+0000] {subprocess.py:93} INFO - Successfully processed Hanoi_20260115_044900.json
+[2026-01-15T04:49:14.400+0000] {subprocess.py:93} INFO - Successfully processed Nurburg_20260115_043309.json
+[2026-01-15T04:49:14.402+0000] {subprocess.py:93} INFO - Successfully processed Munich_20260115_093149.json
+[2026-01-15T04:49:14.405+0000] {subprocess.py:93} INFO - Successfully processed Los Angeles_20260115_093151.json
+[2026-01-15T04:49:14.408+0000] {subprocess.py:93} INFO - Successfully processed Hanoi_20260115_043308.json
+[2026-01-15T04:49:14.410+0000] {subprocess.py:93} INFO - Successfully processed Paris_20260115_043218.json
+[2026-01-15T04:49:14.414+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-01-15T04:49:14.418+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/transform.py", line 109, in <module>
+[2026-01-15T04:49:14.421+0000] {subprocess.py:93} INFO -     run()
+[2026-01-15T04:49:14.426+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/transform.py", line 100, in run
+[2026-01-15T04:49:14.428+0000] {subprocess.py:93} INFO -     df.to_csv(output_csv_path, index=False)
+[2026-01-15T04:49:14.429+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.9/site-packages/pandas/core/generic.py", line 3902, in to_csv
+[2026-01-15T04:49:14.434+0000] {subprocess.py:93} INFO -     return DataFrameRenderer(formatter).to_csv(
+[2026-01-15T04:49:14.440+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.9/site-packages/pandas/io/formats/format.py", line 1152, in to_csv
+[2026-01-15T04:49:14.445+0000] {subprocess.py:93} INFO -     csv_formatter.save()
+[2026-01-15T04:49:14.448+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.9/site-packages/pandas/io/formats/csvs.py", line 247, in save
+[2026-01-15T04:49:14.463+0000] {subprocess.py:93} INFO -     with get_handle(
+[2026-01-15T04:49:14.468+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.9/site-packages/pandas/io/common.py", line 739, in get_handle
+[2026-01-15T04:49:14.474+0000] {subprocess.py:93} INFO -     check_parent_directory(str(handle))
+[2026-01-15T04:49:14.476+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.9/site-packages/pandas/io/common.py", line 604, in check_parent_directory
+[2026-01-15T04:49:14.480+0000] {subprocess.py:93} INFO -     raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+[2026-01-15T04:49:14.484+0000] {subprocess.py:93} INFO - OSError: Cannot save file into a non-existent directory: 'data/processed'
+[2026-01-15T04:49:14.554+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-01-15T04:49:14.586+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-01-15T04:49:14.596+0000] {taskinstance.py:1398} INFO - Marking task as UP_FOR_RETRY. dag_id=weather_data_pipeline, task_id=transform_weather_data, execution_date=20260115T044854, start_date=20260115T044912, end_date=20260115T044914
+[2026-01-15T04:49:14.685+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 9 for task transform_weather_data (Bash command failed. The command returned a non-zero exit code 1.; 400)
+[2026-01-15T04:49:14.708+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2026-01-15T04:49:14.767+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

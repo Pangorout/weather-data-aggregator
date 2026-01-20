@@ -1,0 +1,45 @@
+{
+    "coord": {
+        "lon": 2.3488,
+        "lat": 48.8534
+    },
+    "weather": [
+        {
+            "id": 300,
+            "main": "Drizzle",
+            "description": "light intensity drizzle",
+            "icon": "09n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 282.75,
+        "feels_like": 279.83,
+        "temp_min": 282.43,
+        "temp_max": 283.58,
+        "pressure": 1013,
+        "humidity": 86,
+        "sea_level": 1013,
+        "grnd_level": 1003
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 6.17,
+        "deg": 230
+    },
+    "clouds": {
+        "all": 100
+    },
+    "dt": 1768451390,
+    "sys": {
+        "type": 2,
+        "id": 2012208,
+        "country": "FR",
+        "sunrise": 1768462727,
+        "sunset": 1768494041
+    },
+    "timezone": 3600,
+    "id": 2988507,
+    "name": "Paris",
+    "cod": 200
+}

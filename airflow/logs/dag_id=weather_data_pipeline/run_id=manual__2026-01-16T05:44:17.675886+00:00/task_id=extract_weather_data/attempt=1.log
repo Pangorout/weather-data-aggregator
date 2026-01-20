@@ -1,0 +1,27 @@
+[2026-01-16T05:44:20.203+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_pipeline.extract_weather_data manual__2026-01-16T05:44:17.675886+00:00 [queued]>
+[2026-01-16T05:44:20.219+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_pipeline.extract_weather_data manual__2026-01-16T05:44:17.675886+00:00 [queued]>
+[2026-01-16T05:44:20.220+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2026-01-16T05:44:20.243+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): extract_weather_data> on 2026-01-16 05:44:17.675886+00:00
+[2026-01-16T05:44:20.250+0000] {standard_task_runner.py:57} INFO - Started process 287 to run task
+[2026-01-16T05:44:20.255+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'weather_data_pipeline', 'extract_weather_data', 'manual__2026-01-16T05:44:17.675886+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/weather_scheduler.py', '--cfg-path', '/tmp/tmpd3_d7cf4']
+[2026-01-16T05:44:20.259+0000] {standard_task_runner.py:85} INFO - Job 8: Subtask extract_weather_data
+[2026-01-16T05:44:20.382+0000] {task_command.py:415} INFO - Running <TaskInstance: weather_data_pipeline.extract_weather_data manual__2026-01-16T05:44:17.675886+00:00 [running]> on host d5e9cd3f2712
+[2026-01-16T05:44:20.538+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='pangorin' AIRFLOW_CTX_DAG_ID='weather_data_pipeline' AIRFLOW_CTX_TASK_ID='extract_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2026-01-16T05:44:17.675886+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-01-16T05:44:17.675886+00:00'
+[2026-01-16T05:44:20.541+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-01-16T05:44:20.543+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'python /opt/***/scripts/extract.py']
+[2026-01-16T05:44:20.556+0000] {subprocess.py:86} INFO - Output:
+[2026-01-16T05:44:31.285+0000] {subprocess.py:93} INFO - Start extraction process...
+[2026-01-16T05:44:31.289+0000] {subprocess.py:93} INFO - Successfully fetched data for {city.strip()} to {filename}
+[2026-01-16T05:44:31.294+0000] {subprocess.py:93} INFO - Successfully fetched data for {city.strip()} to {filename}
+[2026-01-16T05:44:31.296+0000] {subprocess.py:93} INFO - Successfully fetched data for {city.strip()} to {filename}
+[2026-01-16T05:44:31.298+0000] {subprocess.py:93} INFO - Successfully fetched data for {city.strip()} to {filename}
+[2026-01-16T05:44:31.299+0000] {subprocess.py:93} INFO - Successfully fetched data for {city.strip()} to {filename}
+[2026-01-16T05:44:31.300+0000] {subprocess.py:93} INFO - Successfully fetched data for {city.strip()} to {filename}
+[2026-01-16T05:44:31.302+0000] {subprocess.py:93} INFO - Successfully fetched data for {city.strip()} to {filename}
+[2026-01-16T05:44:31.304+0000] {subprocess.py:93} INFO - Successfully fetched data for {city.strip()} to {filename}
+[2026-01-16T05:44:31.308+0000] {subprocess.py:93} INFO - Successfully fetched data for {city.strip()} to {filename}
+[2026-01-16T05:44:31.310+0000] {subprocess.py:93} INFO - Successfully fetched data for {city.strip()} to {filename}
+[2026-01-16T05:44:31.335+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-01-16T05:44:31.391+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=weather_data_pipeline, task_id=extract_weather_data, execution_date=20260116T054417, start_date=20260116T054420, end_date=20260116T054431
+[2026-01-16T05:44:31.451+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2026-01-16T05:44:31.506+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

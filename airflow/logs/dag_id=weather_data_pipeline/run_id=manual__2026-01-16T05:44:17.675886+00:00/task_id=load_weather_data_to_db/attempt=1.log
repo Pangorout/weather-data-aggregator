@@ -1,0 +1,19 @@
+[2026-01-16T05:44:37.582+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_pipeline.load_weather_data_to_db manual__2026-01-16T05:44:17.675886+00:00 [queued]>
+[2026-01-16T05:44:37.606+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_pipeline.load_weather_data_to_db manual__2026-01-16T05:44:17.675886+00:00 [queued]>
+[2026-01-16T05:44:37.608+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2026-01-16T05:44:37.639+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): load_weather_data_to_db> on 2026-01-16 05:44:17.675886+00:00
+[2026-01-16T05:44:37.647+0000] {standard_task_runner.py:57} INFO - Started process 302 to run task
+[2026-01-16T05:44:37.656+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'weather_data_pipeline', 'load_weather_data_to_db', 'manual__2026-01-16T05:44:17.675886+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/weather_scheduler.py', '--cfg-path', '/tmp/tmpuhwlw718']
+[2026-01-16T05:44:37.660+0000] {standard_task_runner.py:85} INFO - Job 10: Subtask load_weather_data_to_db
+[2026-01-16T05:44:37.764+0000] {task_command.py:415} INFO - Running <TaskInstance: weather_data_pipeline.load_weather_data_to_db manual__2026-01-16T05:44:17.675886+00:00 [running]> on host d5e9cd3f2712
+[2026-01-16T05:44:37.956+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='pangorin' AIRFLOW_CTX_DAG_ID='weather_data_pipeline' AIRFLOW_CTX_TASK_ID='load_weather_data_to_db' AIRFLOW_CTX_EXECUTION_DATE='2026-01-16T05:44:17.675886+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-01-16T05:44:17.675886+00:00'
+[2026-01-16T05:44:37.964+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-01-16T05:44:37.968+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'python /opt/***/scripts/load.py']
+[2026-01-16T05:44:37.989+0000] {subprocess.py:86} INFO - Output:
+[2026-01-16T05:44:39.562+0000] {subprocess.py:93} INFO - Starting load process...
+[2026-01-16T05:44:39.563+0000] {subprocess.py:93} INFO - Error: No processed files found matching 'data/processed/processed_weather_*.csv'.
+[2026-01-16T05:44:39.564+0000] {subprocess.py:93} INFO - Please run (or rerun) transform script.
+[2026-01-16T05:44:39.690+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-01-16T05:44:39.748+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=weather_data_pipeline, task_id=load_weather_data_to_db, execution_date=20260116T054417, start_date=20260116T054437, end_date=20260116T054439
+[2026-01-16T05:44:39.801+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2026-01-16T05:44:39.849+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
