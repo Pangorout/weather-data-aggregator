@@ -27,7 +27,13 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-  
+
+# Q: Why there is Postgres service here when this project uses MySQL for storing data?
+
+# A: The Postgres service is for Airflow's internal metadata database.
+# Airflow requires a metadata database to function, and Postgres is a common choice for this purpose.
+# The actual application data is stored in MySQL, but Airflow uses Postgres to manage its own metadata.
+
   postgres:
     image: postgres:13-alpine
     container_name: airflow_db
@@ -35,7 +41,26 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U airflow"]
       interval: 5s
       retries: 5
+  
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USERNAME}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  postgres-data:
+  grafana-storage:
